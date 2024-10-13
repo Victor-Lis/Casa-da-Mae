@@ -46,7 +46,9 @@ export default function Header() {
             <h2 className="text-white">Instagram</h2>
           </a>
           <a
-            href="https://whatsapp.com"
+            href="https://api.whatsapp.com/send?phone=5511996143450"
+            target="_blank"
+            rel="noreferrer"
             className="flex justify-center items-center"
           >
             <Image src={WhatsApp} alt="WhatsApp logo" className="w-7" />

@@ -17,10 +17,15 @@ export default function Footer() {
   return (
     <footer className="flex justify-around items-center bg-primary py-3 max-sm:flex-wrap max-sm:flex-col">
       <main className="flex-1 flex flex-wrap justify-between px-10 gap-x-10 gap-y-5 text-white">
-        <div className="flex justify-center items-center">
+        <a
+          className="flex justify-center items-center"
+          href="mailto:rubenstmachado1943@gmail.com"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Image src={Email} alt="Email" className="w-10" />
-          <h1 className="text-2xl ml-2">email@gmail.com</h1>
-        </div>
+          <h1 className="text-2xl ml-2">rubenstmachado1943@gmail.com</h1>
+        </a>
         <div className="flex justify-center items-center">
           <Image src={Mapa} alt="Mapa" className="w-10" />
           <h1 className="text-2xl ml-2">
@@ -31,10 +36,15 @@ export default function Footer() {
           <Image src={Telefone} alt="Telefone" className="w-12" />
           <h1 className="text-2xl ml-2">99999-9999</h1>
         </div>
-        <div className="flex justify-center items-center">
+        <a
+          href="https://api.whatsapp.com/send?phone=5511996143450"
+          target="_blank"
+          rel="noreferrer"
+          className="flex justify-center items-center"
+        >
           <Image src={WhatsApp} alt="WhatsApp" className="w-10" />
-          <h1 className="text-2xl ml-2">11 99999-9999</h1>
-        </div>
+          <h1 className="text-2xl ml-2">11 99614-3450</h1>
+        </a>
       </main>
       <Image src={Divisoria} alt="Divisoria" className="h-full max-sm:hidden" />
       <h1
