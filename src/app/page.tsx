@@ -35,8 +35,8 @@ export default function Home() {
         image={EducarImage}
         title="Educar"
         texts={educarTexts}
-        imageFull={true}
-        bgPath='./../assets/home/educar.png'
+        className="mb-20"
+        imageFull
       />
     </main>
   )

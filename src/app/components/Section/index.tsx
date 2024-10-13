@@ -6,14 +6,16 @@ export default function Section({
   title,
   texts,
   imageFull,
+  className,
 }: {
   image: StaticImport
   title: string
   texts: string[]
   imageFull?: boolean
+  className?: string
 }) {
   return (
-    <section className="w-full mt-20">
+    <section className={`w-full mt-20 ${className}`}>
       <div
         className={`overflow-x-hidden relative w-full ${imageFull && 'min-h-72'} bg-secondary flex ${imageFull ? 'justify-between' : 'justify-center'} items-center ${!imageFull && 'flex-wrap'} gap-x-10 ${imageFull ? 'p-0' : 'px-10 py-20 md:py-8'}`}
       >
