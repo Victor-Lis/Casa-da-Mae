@@ -19,12 +19,12 @@ export default function Footer() {
       <main className="flex-1 flex flex-wrap justify-between px-10 gap-x-10 gap-y-5 text-white">
         <a
           className="flex justify-center items-center"
-          href="mailto:rubenstmachado1943@gmail.com"
+          href="mailto:casadamae.projeto@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
           <Image src={Email} alt="Email" className="w-10" />
-          <h1 className="text-2xl ml-2">rubenstmachado1943@gmail.com</h1>
+          <h1 className="text-2xl ml-2">casadamae.projeto@gmail.com</h1>
         </a>
         <div className="flex justify-center items-center">
           <Image src={Mapa} alt="Mapa" className="w-10" />
