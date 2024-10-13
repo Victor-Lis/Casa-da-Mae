@@ -38,13 +38,13 @@ export default function Header() {
       <main className="w-full max-sm:h-24 sm:h-16 px-2 flex justify-around items-center">
         <h1 className="text-secondary text-2xl flex-1">Bem vindo!</h1>
         <div className="flex flex-1 justify-end gap-4 flex-wrap">
-          <a
+          {/* <a
             href="https://instagram.com"
             className="flex justify-center items-center"
           >
             <Image src={Instagram} alt="Instagram logo" className="w-8" />
             <h2 className="text-white">Instagram</h2>
-          </a>
+          </a> */}
           <a
             href="https://api.whatsapp.com/send?phone=5511996143450"
             target="_blank"

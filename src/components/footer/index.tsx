@@ -26,16 +26,12 @@ export default function Footer() {
           <Image src={Email} alt="Email" className="w-10" />
           <h1 className="text-2xl ml-2">casadamae.projeto@gmail.com</h1>
         </a>
-        <div className="flex justify-center items-center">
+        {/* <div className="flex justify-center items-center">
           <Image src={Mapa} alt="Mapa" className="w-10" />
           <h1 className="text-2xl ml-2">
             Av. Pref. Antônio Júlio Toledo Garcia Lopes, 200
           </h1>
-        </div>
-        <div className="flex justify-center items-center">
-          <Image src={Telefone} alt="Telefone" className="w-12" />
-          <h1 className="text-2xl ml-2">99999-9999</h1>
-        </div>
+        </div> */}
         <a
           href="https://api.whatsapp.com/send?phone=5511996143450"
           target="_blank"
