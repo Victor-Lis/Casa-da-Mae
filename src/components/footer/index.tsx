@@ -16,15 +16,17 @@ const pacifico = Pacifico({
 export default function Footer() {
   return (
     <footer className="flex justify-around items-center bg-primary py-3 max-sm:flex-wrap max-sm:flex-col">
-      <main className="flex-1 flex flex-wrap justify-between px-10 gap-x-10 gap-y-5 text-white">
+      <main className="flex-1 flex flex-wrap justify-between max-sm:px-2 px-10 gap-x-10 gap-y-5 text-white">
         <a
           className="flex justify-center items-center"
           href="mailto:casadamae.projeto@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
-          <Image src={Email} alt="Email" className="w-10" />
-          <h1 className="text-2xl ml-2">casadamae.projeto@gmail.com</h1>
+          <Image src={Email} alt="Email" className="max-sm:w-6 w-10" />
+          <h1 className="max-sm:text-lg text-2xl ml-2">
+            casadamae.projeto@gmail.com
+          </h1>
         </a>
         {/* <div className="flex justify-center items-center">
           <Image src={Mapa} alt="Mapa" className="w-10" />
@@ -38,8 +40,8 @@ export default function Footer() {
           rel="noreferrer"
           className="flex justify-center items-center"
         >
-          <Image src={WhatsApp} alt="WhatsApp" className="w-10" />
-          <h1 className="text-2xl ml-2">11 99614-3450</h1>
+          <Image src={WhatsApp} alt="WhatsApp" className="max-sm:w-6 w-10" />
+          <h1 className="max-sm:text-lg text-2xl ml-2">11 99614-3450</h1>
         </a>
       </main>
       <Image src={Divisoria} alt="Divisoria" className="h-full max-sm:hidden" />
