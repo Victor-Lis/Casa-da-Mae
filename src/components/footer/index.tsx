@@ -24,7 +24,7 @@ export default function Footer() {
           rel="noreferrer"
         >
           <Image src={Email} alt="Email" className="max-sm:w-6 w-10" />
-          <h1 className="max-sm:text-lg text-2xl ml-2">
+          <h1 className="max-sm:text-base text-2xl ml-2">
             casadamae.projeto@gmail.com
           </h1>
         </a>
@@ -41,7 +41,7 @@ export default function Footer() {
           className="flex justify-center items-center"
         >
           <Image src={WhatsApp} alt="WhatsApp" className="max-sm:w-6 w-10" />
-          <h1 className="max-sm:text-lg text-2xl ml-2">11 99614-3450</h1>
+          <h1 className="max-sm:text-base text-2xl ml-2">11 99614-3450</h1>
         </a>
       </main>
       <Image src={Divisoria} alt="Divisoria" className="h-full max-sm:hidden" />
