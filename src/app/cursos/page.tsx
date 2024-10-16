@@ -6,6 +6,7 @@ import FluxoImage from '@/assets/cursos/fluxo-de-caixa.png'
 import ControleImage from '@/assets/cursos/recebimento.png'
 import GastosImage from '@/assets/cursos/gastos.png'
 import EstoqueImage from '@/assets/cursos/qualidade.png'
+import Link from 'next/link'
 
 export default function Cursos() {
   return (
@@ -37,8 +38,9 @@ export default function Cursos() {
         text="Domine as técnicas para gerir eficientemente os recursos ou produtos disponíveis."
       />
       <button
+        // href={'/cursos/inscricao'}
         type="button"
-        className="bg-secondary text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded"
+        className="bg-gray-400 text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded cursor-not-allowed"
       >
         Inscreva-se
       </button>
