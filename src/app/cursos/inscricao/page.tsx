@@ -1,15 +1,16 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/input'
 // import { insertStudentInProject } from "@/connetions/supabase/insertStudentInProject";
 import { redirect, useRouter } from 'next/navigation'
+import { insertCourseInscription } from '@/supabase/insertCourseInscription'
 
 export type AlunoType = {
-  nome: string
-  email: string
+  // nome: string
+  gmail: string
   curso:
     | 'Contabilidade'
     | 'Fluxo de Caixa'
@@ -19,8 +20,8 @@ export type AlunoType = {
 }
 
 const schema = z.object({
-  nome: z.string().min(3),
-  email: z.string().email(),
+  // nome: z.string().min(3),
+  gmail: z.string().email(),
   curso: z.enum([
     'Contabilidade',
     'Fluxo de Caixa',
@@ -55,10 +56,15 @@ export default function Inscricao() {
   }
 
   async function handleFormSubmit(data: FormData) {
-    console.log(data)
-    // await insertStudentInProject({ aluno })
-    alert('Inscrição Realizada!')
-    // router.replace('/cursos')
+    const status = await insertCourseInscription({ inscricao: data })
+    if (status) {
+      alert('Inscrição Realizada!')
+      router.replace('/cursos')
+    } else {
+      alert('Erro, tente novamente!')
+      router.refresh()
+      // router.replace('/cursos/inscricao')
+    }
   }
 
   return (
@@ -70,19 +76,19 @@ export default function Inscricao() {
         <h1 className="text-blue-700 text-3xl m-auto uppercase font-bold">
           Preencha e se inscreva!
         </h1>
-        <Input
+        {/* <Input
           type="text"
           name="nome"
           placeholder="Preencha seu nome *completo*"
           register={register}
           error={translateError(errors.nome?.message)}
-        />
+        /> */}
         <Input
           type="text"
-          name="email"
-          placeholder="Preencha seu email"
+          name="gmail"
+          placeholder="Preencha seu gmail"
           register={register}
-          error={translateError(errors.email?.message)}
+          error={translateError(errors.gmail?.message)}
         />
         <Input
           type="radio"

@@ -13,7 +13,7 @@ export default function Hero() {
       </div>
       <div className="flex flex-1 flex-col justify-center items-center text-white gap-y-5 min-[700px]:pl-10 mt-5">
         <h2 className="gap-x-4 bg-primary p-4 max-sm:p-1 rounded mr-auto text-3xl max-sm:text-xl mt-1">
-          Abraço Amoroso
+          Abraço Amoroso:
         </h2>
         <h2 className="gap-x-4 bg-primary p-4 max-sm:p-1 rounded ml-auto text-3xl max-sm:text-xl mt-1">
           Alimentação no Lar

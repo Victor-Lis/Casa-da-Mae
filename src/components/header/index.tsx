@@ -36,7 +36,9 @@ export default function Header() {
       className={`w-full bg-primary flex flex-col px-3 shadow-lg z-10 ${pacifico.className}`}
     >
       <main className="w-full max-sm:h-24 sm:h-16 px-2 flex justify-around items-center">
-        <h1 className="text-secondary text-2xl flex-1">Bem vindo!</h1>
+        <h1 className="text-secondary text-2xl flex-1">
+          Bem vindo a casa da mãe!
+        </h1>
         <div className="flex flex-1 justify-end gap-4 flex-wrap">
           {/* <a
             href="https://instagram.com"

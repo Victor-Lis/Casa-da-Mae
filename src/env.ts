@@ -5,4 +5,4 @@ const envSchema = z.object({
   NEXT_PUBLIC_SUPABASE_ANON_KEY: z.string(),
 })
 
-export const env = envSchema.parse(process.env)
+export const env = envSchema.parse(process?.env)

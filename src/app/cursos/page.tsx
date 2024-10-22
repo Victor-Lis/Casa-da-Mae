@@ -37,13 +37,12 @@ export default function Cursos() {
         title="Controle de Estoque:"
         text="Domine as técnicas para gerir eficientemente os recursos ou produtos disponíveis."
       />
-      <button
-        // href={'/cursos/inscricao'}
-        type="button"
-        className="bg-gray-400 text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded cursor-not-allowed"
+      <Link
+        href={'/cursos/inscricao'}
+        className="bg-secondary text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded hover:opacity-85 hover:scale-105 hover:duration-150"
       >
         Inscreva-se
-      </button>
+      </Link>
     </main>
   )
 }
