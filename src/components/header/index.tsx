@@ -37,7 +37,7 @@ export default function Header() {
     >
       <main className="w-full max-sm:h-24 sm:h-16 px-2 flex justify-around items-center">
         <h1 className="text-secondary text-2xl flex-1">
-          Bem vindo a casa da mãe!
+          Bem vindo a Casa da Mãe!
         </h1>
         <div className="flex flex-1 justify-end gap-4 flex-wrap">
           {/* <a
