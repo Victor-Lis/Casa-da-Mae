@@ -1,19 +1,31 @@
+'use client'
+import type { InscriptionType } from '@/@types/Inscription'
+
+import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
+
 import StyledBox from '../../StyledBox'
 
 import Link from 'next/link'
 
-import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
 import CoursesContainer from '../CoursesContainer'
 
 import { authOptions } from '@/lib/auth'
-import { getServerSession } from 'next-auth'
+import { useSession } from 'next-auth/react'
+import { useEffect, useState } from 'react'
 
-export async function Courses() {
-  const session = await getServerSession(authOptions)
+export function Courses() {
+  const { data: session, status } = useSession()
+  const [inscricoes, setInscricoes] = useState<InscriptionType[] | null>([])
 
-  const inscriptions = await getInscriptionsByEmail({
-    email: session?.user?.email as string,
-  })
+  useEffect(() => {
+    async function handleGetInscriptions() {
+      const inscriptions = await getInscriptionsByEmail({
+        email: session?.user?.email as string,
+      })
+
+      setInscricoes(inscriptions)
+    }
+  }, [])
 
   return (
     <StyledBox extraClass="pb-12">
@@ -34,7 +46,7 @@ export async function Courses() {
         <strong className="text-red-400">pendente</strong>, para descobrir em
         qual cada um se encaixa, basta analisar a cor da borda
       </h1>
-      <CoursesContainer inscricoes={inscriptions || []} />
+      <CoursesContainer inscricoes={inscricoes || []} />
     </StyledBox>
   )
 }
