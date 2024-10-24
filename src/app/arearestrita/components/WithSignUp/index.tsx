@@ -1,7 +1,7 @@
 import type { UserProps } from '@/@types/User'
 
 import Profile from './Profile'
-import { Courses } from './Courses/page'
+import { Courses } from './Courses'
 
 export default function WithSignUp() {
   return (
