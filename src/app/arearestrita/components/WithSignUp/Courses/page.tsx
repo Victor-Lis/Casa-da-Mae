@@ -1,4 +1,3 @@
-import type { UserProps } from '@/@types/User'
 import StyledBox from '../../StyledBox'
 
 import Link from 'next/link'
@@ -6,7 +5,7 @@ import Link from 'next/link'
 import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
 import CoursesContainer from '../CoursesContainer'
 
-export default async function Courses({ email }: UserProps) {
+export default async function Courses({ email }: { email: string }) {
   const inscriptions = await getInscriptionsByEmail({
     email: email as string,
   })
