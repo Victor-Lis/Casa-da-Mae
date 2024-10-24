@@ -56,14 +56,18 @@ export default function Inscricao() {
   }
 
   async function handleFormSubmit(data: FormData) {
-    const status = await insertCourseInscription({ inscricao: data })
+    const { status, message } = await insertCourseInscription({
+      inscricao: data,
+    })
     if (status) {
       alert('Inscrição Realizada!')
       router.replace('/cursos')
+    } else if (message) {
+      alert(message)
+      router.refresh()
     } else {
       alert('Erro, tente novamente!')
       router.refresh()
-      // router.replace('/cursos/inscricao')
     }
   }
 
