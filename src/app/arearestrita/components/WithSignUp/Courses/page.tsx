@@ -4,11 +4,10 @@ import Link from 'next/link'
 
 import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
 import CoursesContainer from '../CoursesContainer'
-import type { UserProps } from '@/@types/User'
 
-export default async function WithSignUp({ user }: { user: UserProps }) {
+export async function Courses({ email }: { email: string }) {
   const inscriptions = await getInscriptionsByEmail({
-    email: user.email as string,
+    email: email as string,
   })
 
   return (

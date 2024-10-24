@@ -43,8 +43,6 @@ export default function CoursesContainer({
     },
   ]
 
-  console.log(inscricoes)
-
   return (
     <>
       {inscricoes?.map(inscricao => {
