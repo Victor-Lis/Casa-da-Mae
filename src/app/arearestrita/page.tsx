@@ -9,7 +9,7 @@ export default async function arearestrita() {
 
   return (
     <div className="w-full bg-secondary">
-      {session?.user ? <WithSignUp user={session.user} /> : <NoSignUp />}
+      {session?.user ? <WithSignUp /> : <NoSignUp />}
     </div>
   )
 }

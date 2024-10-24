@@ -5,9 +5,14 @@ import Link from 'next/link'
 import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
 import CoursesContainer from '../CoursesContainer'
 
-export async function Courses({ email }: { email: string }) {
+import { authOptions } from '@/lib/auth'
+import { getServerSession } from 'next-auth'
+
+export async function Courses() {
+  const session = await getServerSession(authOptions)
+
   const inscriptions = await getInscriptionsByEmail({
-    email: email as string,
+    email: session?.user?.email as string,
   })
 
   return (

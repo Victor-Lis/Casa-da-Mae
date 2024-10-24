@@ -2,7 +2,12 @@ import type { UserProps } from '@/@types/User'
 import ButtonLogOut from '../LogOut'
 import StyledBox from '../../StyledBox'
 
-export default function Profile({ user }: { user: UserProps }) {
+import { authOptions } from '@/lib/auth'
+import { getServerSession } from 'next-auth'
+
+export default async function Profile() {
+  const session = await getServerSession(authOptions)
+
   return (
     <StyledBox>
       <h1 className="text-white text-5xl w-full text-center font-bold mb-8 max-sm:text-3xl">
@@ -13,7 +18,7 @@ export default function Profile({ user }: { user: UserProps }) {
           Nome:
         </h3>
         <h3 className="text-white text-2xl text-left max-sm:text-xl">
-          {user.name}
+          {session?.user?.name}
         </h3>
       </div>
       <div className="w-full flex justify-start items-center gap-x-2 mb-8 max-sm:flex-col max-sm:items-start overflow-x-hidden">
@@ -21,7 +26,7 @@ export default function Profile({ user }: { user: UserProps }) {
           Email:
         </h3>
         <h3 className="text-white text-2xl text-left max-sm:text-xl">
-          {user.email}
+          {session?.user?.email}
         </h3>
       </div>
       <ButtonLogOut />
