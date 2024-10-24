@@ -2,7 +2,6 @@ import type { UserProps } from '@/@types/User'
 import StyledBox from '../../StyledBox'
 
 import Link from 'next/link'
-import CourseCard from '@/components/CourseCard'
 
 import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
 import CoursesContainer from '../CoursesContainer'
