@@ -1,10 +1,13 @@
-import ButtonLogOut from './LogOut'
+import type { UserProps } from '@/@types/User'
 
-export default function WithSignUp() {
+import Profile from './Profile'
+import Courses from './Courses/page'
+
+export default function WithSignUp({ user }: { user: UserProps }) {
   return (
-    <div className="w-full h-96 flex flex-col justify-center items-center flex-wrap py-10 gap-y-10">
-      <h1 className="text-9xl text-white">EM CONSTRUÇÃO</h1>
-      <ButtonLogOut />
+    <div className="w-full flex flex-col justify-center items-center flex-wrap py-10 gap-y-10">
+      <Profile user={user} />
+      <Courses user={user} />
     </div>
   )
 }

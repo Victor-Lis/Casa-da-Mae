@@ -1,4 +1,4 @@
-import CourseCard from './components/CourseCard'
+import CourseCard from '@/components/CourseCard'
 import Hero from './components/Hero'
 
 import ContabilidadeImage from '@/assets/cursos/contabilidade.png'

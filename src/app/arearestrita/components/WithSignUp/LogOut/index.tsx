@@ -10,7 +10,7 @@ export default function ButtonLogOut() {
     <button
       type="button"
       onClick={handleLogout}
-      className="bg-red-400 text-white text-2xl uppercase px-6 py-1 rounded hover:opacity-85 hover:scale-105 hover:duration-150"
+      className="bg-red-400 text-white text-xl uppercase px-6 py-1 rounded hover:opacity-85 hover:scale-105 hover:duration-150"
     >
       Sair
     </button>
