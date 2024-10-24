@@ -12,10 +12,10 @@ export type AlunoType = {
   // nome: string
   gmail: string
   curso:
-    | 'Contabilidade'
+    | 'Contabilidade para Leigos'
     | 'Fluxo de Caixa'
-    | 'Contas a Receber'
-    | 'Contas a Pagar'
+    | 'Controle de Contas a Receber'
+    | 'Controle de Contas a Pagar'
     | 'Controle de Estoque'
 }
 
@@ -23,10 +23,10 @@ const schema = z.object({
   // nome: z.string().min(3),
   gmail: z.string().email(),
   curso: z.enum([
-    'Contabilidade',
+    'Contabilidade para Leigos',
     'Fluxo de Caixa',
-    'Contas a Receber',
-    'Contas a Pagar',
+    'Controle de Contas a Receber',
+    'Controle de Contas a Pagar',
     'Controle de Estoque',
   ]),
 })
@@ -96,13 +96,19 @@ export default function Inscricao() {
           register={register}
           error={translateError(errors.curso?.message)}
           options={[
-            { label: 'Contabilidade para Leigos', value: 'Contabilidade' },
+            {
+              label: 'Contabilidade para Leigos',
+              value: 'Contabilidade para Leigos',
+            },
             { label: 'Fluxo de Caixa', value: 'Fluxo de Caixa' },
             {
               label: 'Controle de Contas a Receber',
-              value: 'Contas a Receber',
+              value: 'Controle de Contas a Receber',
             },
-            { label: 'Controle de Contas a Pagar', value: 'Contas a Pagar' },
+            {
+              label: 'Controle de Contas a Pagar',
+              value: 'Controle de Contas a Pagar',
+            },
             { label: 'Controle de Estoque', value: 'Controle de Estoque' },
           ]}
         />

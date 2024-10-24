@@ -25,6 +25,8 @@ export function Courses() {
 
       setInscricoes(inscriptions)
     }
+
+    handleGetInscriptions()
   }, [])
 
   return (
