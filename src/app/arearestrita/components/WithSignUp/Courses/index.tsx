@@ -22,12 +22,11 @@ export function Courses() {
       const inscriptions = await getInscriptionsByEmail({
         email: session?.user?.email as string,
       })
-
       setInscricoes(inscriptions)
     }
 
     handleGetInscriptions()
-  }, [])
+  }, [session])
 
   return (
     <StyledBox extraClass="pb-12">

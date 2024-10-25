@@ -1,5 +1,7 @@
-export type UserProps = {
-  name?: string | null
-  email?: string | null
-  image?: string | null
+export type UserType = {
+  id: string
+  name: string
+  email: string
+  image: string
+  admin: boolean
 }

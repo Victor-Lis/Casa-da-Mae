@@ -47,9 +47,6 @@ export default function CoursesContainer({
     <>
       {inscricoes?.map(inscricao => {
         const curso = cursos.find(curso => {
-          console.log(
-            `${curso.title.slice(0, inscricao.nome_do_curso.length)} === ${inscricao.nome_do_curso}`
-          )
           return (
             curso.title.slice(0, inscricao.nome_do_curso.length) ===
             inscricao.nome_do_curso
