@@ -1,5 +1,5 @@
 export type InscriptionType = {
-  id: number
+  id: string
 
   aluno: string // email
   nome_do_curso: string
