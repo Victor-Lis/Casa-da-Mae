@@ -63,43 +63,43 @@ export default function Header() {
       >
         <Link
           href={'/'}
-          className={`text-lg text-white ${isHome() ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isHome() ? 'font-bold underline' : ''}`}
         >
           Home
         </Link>
         <Link
           href={'/casadamae'}
-          className={`text-lg text-white ${isLikeRoute('/casadamae') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/casadamae') ? 'font-bold underline' : ''}`}
         >
           Casa da Mãe
         </Link>
         <Link
           href={'/projeto'}
-          className={`text-lg text-white ${isLikeRoute('/projeto') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/projeto') ? 'font-bold underline' : ''}`}
         >
           Projeto
         </Link>
         <Link
           href={'/cursos'}
-          className={`text-lg text-white ${isLikeRoute('/cursos') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/cursos') ? 'font-bold underline' : ''}`}
         >
           Cursos
         </Link>
         <Link
           href={'/investidores'}
-          className={`text-lg text-white ${isLikeRoute('/investidores') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/investidores') ? 'font-bold underline' : ''}`}
         >
           Investidores
         </Link>
         <Link
           href={'/imagens'}
-          className={`text-lg text-white ${isLikeRoute('/imagens') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/imagens') ? 'font-bold underline' : ''}`}
         >
           Fotos/Vídeos
         </Link>
         <Link
           href={'/arearestrita'}
-          className={`text-lg text-white ${isLikeRoute('/arearestrita') ? 'font-bold underline' : ''}`}
+          className={`text-lg text-white my-2 ${isLikeRoute('/arearestrita') ? 'font-bold underline' : ''}`}
         >
           Área Restrita
         </Link>

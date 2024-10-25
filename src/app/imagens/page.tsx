@@ -1,8 +1,13 @@
-import { supabase } from '@/supabase/index'
+'use client'
+import { useEffect, useState } from 'react'
+
 import Image from 'next/image'
 import Slides from './components/Slides'
 
-export default async function Imagens() {
+import { supabase } from '@/supabase/index'
+
+export default function Imagens() {
+  const [imagesURLs, setImagesURLs] = useState<string[]>([])
   async function getImages() {
     const URLs: string[] = []
     const { data: imagesFromBucket } = await supabase.storage
@@ -20,7 +25,14 @@ export default async function Imagens() {
     return URLs
   }
 
-  const imagesURLs = await getImages()
+  useEffect(() => {
+    async function handleGetImages() {
+      const URLs = await getImages()
+      setImagesURLs(URLs)
+    }
+
+    handleGetImages()
+  }, [])
 
   return (
     <div className="bg-tertiary py-12 overflow-x-hidden">
