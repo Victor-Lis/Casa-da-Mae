@@ -34,7 +34,9 @@ export default async function Cursos() {
         text="Entenda os princípios básicos da contabilidade de uma maneira clara, direta e simples."
       />
       {cursos?.find(
-        curso => curso.nome_do_curso === 'Contabilidade para Leigos'
+        curso =>
+          curso.nome_do_curso === 'Contabilidade para Leigos' &&
+          curso.status_aprovacao
       ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
           Você tem acesso ao curso acima!
@@ -45,7 +47,10 @@ export default async function Cursos() {
         title="Fluxo de Caixa:"
         text="Aprenda a gerenciar e prever as entradas e saídas de recursos financeiros"
       />
-      {cursos?.find(curso => curso.nome_do_curso === 'Fluxo de Caixa') && (
+      {cursos?.find(
+        curso =>
+          curso.nome_do_curso === 'Fluxo de Caixa' && curso.status_aprovacao
+      ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
           Você tem acesso ao curso acima!
         </h2>
@@ -56,7 +61,9 @@ export default async function Cursos() {
         text="Organize suas finanças mantendo a saúde dos seus recebimentos."
       />
       {cursos?.find(
-        curso => curso.nome_do_curso === 'Controle de Contas a Receber'
+        curso =>
+          curso.nome_do_curso === 'Controle de Contas a Receber' &&
+          curso.status_aprovacao
       ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
           Você tem acesso ao curso acima!
@@ -68,7 +75,9 @@ export default async function Cursos() {
         text="Controle absoluto sobre suas dívidas. Importantíssimo para a tomada de decisão. "
       />
       {cursos?.find(
-        curso => curso.nome_do_curso === 'Controle de Contas a Pagar'
+        curso =>
+          curso.nome_do_curso === 'Controle de Contas a Pagar' &&
+          curso.status_aprovacao
       ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
           Você tem acesso ao curso acima!
@@ -79,7 +88,11 @@ export default async function Cursos() {
         title="Controle de Estoque:"
         text="Domine as técnicas para gerir eficientemente os recursos ou produtos disponíveis."
       />
-      {cursos?.find(curso => curso.nome_do_curso === 'Controle de Estoque') && (
+      {cursos?.find(
+        curso =>
+          curso.nome_do_curso === 'Controle de Estoque' &&
+          curso.status_aprovacao
+      ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
           Você tem acesso ao curso acima!
         </h2>
