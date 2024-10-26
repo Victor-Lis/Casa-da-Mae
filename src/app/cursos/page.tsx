@@ -1,6 +1,9 @@
 import CourseCard from '@/components/CourseCard'
 import Hero from './components/Hero'
 
+import { authOptions } from '@/lib/auth'
+import { getServerSession } from 'next-auth'
+
 import ContabilidadeImage from '@/assets/cursos/contabilidade.png'
 import FluxoImage from '@/assets/cursos/fluxo-de-caixa.png'
 import ControleImage from '@/assets/cursos/recebimento.png'
@@ -8,7 +11,20 @@ import GastosImage from '@/assets/cursos/gastos.png'
 import EstoqueImage from '@/assets/cursos/qualidade.png'
 import Link from 'next/link'
 
-export default function Cursos() {
+import { getInscriptionsByEmail } from '@/supabase/getInscriptionsByEmail'
+
+export default async function Cursos() {
+  const session = await getServerSession(authOptions)
+
+  async function getInscriptions() {
+    const inscriptions = await getInscriptionsByEmail({
+      email: session?.user?.email as string,
+    })
+    return inscriptions
+  }
+
+  const cursos = await getInscriptions()
+
   return (
     <main className="bg-tertiary pb-6 flex flex-col items-center justify-center">
       <Hero />
@@ -17,26 +33,57 @@ export default function Cursos() {
         title="Contabilidade para Leigos:"
         text="Entenda os princípios básicos da contabilidade de uma maneira clara, direta e simples."
       />
+      {cursos?.find(
+        curso => curso.nome_do_curso === 'Contabilidade para Leigos'
+      ) && (
+        <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
+          Você tem acesso ao curso acima!
+        </h2>
+      )}
       <CourseCard
         image={FluxoImage}
         title="Fluxo de Caixa:"
         text="Aprenda a gerenciar e prever as entradas e saídas de recursos financeiros"
       />
+      {cursos?.find(curso => curso.nome_do_curso === 'Fluxo de Caixa') && (
+        <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
+          Você tem acesso ao curso acima!
+        </h2>
+      )}
       <CourseCard
         image={ControleImage}
         title="Controle de Contas a Receber: "
         text="Organize suas finanças mantendo a saúde dos seus recebimentos."
       />
+      {cursos?.find(
+        curso => curso.nome_do_curso === 'Controle de Contas a Receber'
+      ) && (
+        <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
+          Você tem acesso ao curso acima!
+        </h2>
+      )}
       <CourseCard
         image={GastosImage}
         title="Controle de Contas a Pagar:"
         text="Controle absoluto sobre suas dívidas. Importantíssimo para a tomada de decisão. "
       />
+      {cursos?.find(
+        curso => curso.nome_do_curso === 'Controle de Contas a Pagar'
+      ) && (
+        <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
+          Você tem acesso ao curso acima!
+        </h2>
+      )}
       <CourseCard
         image={EstoqueImage}
         title="Controle de Estoque:"
         text="Domine as técnicas para gerir eficientemente os recursos ou produtos disponíveis."
       />
+      {cursos?.find(curso => curso.nome_do_curso === 'Controle de Estoque') && (
+        <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
+          Você tem acesso ao curso acima!
+        </h2>
+      )}
       <Link
         href={'/cursos/inscricao'}
         className="bg-secondary text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded hover:opacity-85 hover:scale-105 hover:duration-150"
