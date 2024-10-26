@@ -1,11 +1,12 @@
 import { supabase } from './index'
 
 export async function deleteImage({
-  file,
-}: { file: string }): Promise<boolean> {
+  fileName,
+}: { fileName: string }): Promise<boolean> {
+  console.log(fileName)
   const { data, error } = await supabase.storage
     .from('contribuicoes')
-    .remove([file])
+    .remove([fileName])
 
   return !!data
 }

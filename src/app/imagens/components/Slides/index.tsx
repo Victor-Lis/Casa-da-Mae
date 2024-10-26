@@ -1,9 +1,10 @@
 'use client'
 import React, { useRef, useState } from 'react'
-// Import Swiper React components
+
 import { Swiper, SwiperSlide } from 'swiper/react'
 
-// Import Swiper styles
+import type { ImageType } from '@/@types/ImageType'
+
 import 'swiper/css'
 import 'swiper/css/effect-cards'
 
@@ -16,10 +17,9 @@ import ButtonDelete from '../ButtonDelete'
 import { useSession } from 'next-auth/react'
 import type { UserType } from '@/@types/User'
 
-export default function Slides({ urls }: { urls: string[] }) {
+export default function Slides({ images }: { images: ImageType[] }) {
   const session = useSession()
   const user = session.data?.user as UserType
-
   return (
     <Swiper
       effect={'cards'}
@@ -27,15 +27,15 @@ export default function Slides({ urls }: { urls: string[] }) {
       modules={[EffectCards]}
       className="mySwiper max-sm:w-52"
     >
-      {urls?.map(url => {
+      {images?.map(image => {
         return (
-          <SwiperSlide key={url}>
+          <SwiperSlide key={`${image.url}+${image.id}`}>
             <img
-              src={url}
+              src={image.url}
               className="w-full h-full bg-cover relative"
               alt="Imagem de doação"
             />
-            {user?.admin && <ButtonDelete/>}
+            {user?.admin && <ButtonDelete id={image.id} />}
           </SwiperSlide>
         )
       })}

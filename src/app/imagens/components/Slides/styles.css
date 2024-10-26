@@ -1,6 +1,6 @@
 .swiper {
-  width: 320px;
-  height: 320px;
+  width: 420px;
+  height: 390px;
 }
 
 .swiper-slide {
@@ -11,4 +11,11 @@
   font-size: 22px;
   font-weight: bold;
   color: #fff;
+}
+
+@media (max-width: 500px) {
+  .swiper {
+    width: 260px;
+    height: 230px;
+  }
 }
