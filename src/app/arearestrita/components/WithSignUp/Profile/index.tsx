@@ -1,4 +1,4 @@
-import type { UserProps } from '@/@types/User'
+import type { UserType } from '@/@types/User'
 import ButtonLogOut from '../LogOut'
 import StyledBox from '../../StyledBox'
 
