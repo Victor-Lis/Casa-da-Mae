@@ -13,6 +13,7 @@ export default function ButtonToggleStatus({
   async function handleToggleStatus() {
     const response = await toggleInscriptionStatus({ id, status_aprovacao })
     if (response) {
+      router.replace("/cursos")
       router.refresh()
     }
   }
