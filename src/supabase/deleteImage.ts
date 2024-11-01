@@ -1,12 +1,13 @@
 import { supabase } from './index'
 
 export async function deleteImage({
+  dir,
   fileName,
-}: { fileName: string }): Promise<boolean> {
-  console.log(fileName)
+}: { dir: string; fileName: string }): Promise<boolean> {
+  fileName
   const { data, error } = await supabase.storage
-    .from('contribuicoes')
-    .remove([fileName])
+    .from('arquivos')
+    .remove([`${dir}/${fileName}`])
 
   return !!data
 }

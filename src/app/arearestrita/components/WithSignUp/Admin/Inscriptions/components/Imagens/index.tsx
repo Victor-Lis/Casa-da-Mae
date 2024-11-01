@@ -1,6 +1,6 @@
 'use client'
 
-import StyledBox from '../../../StyledBox'
+import StyledBox from '../../../../../StyledBox'
 
 import type { FormEvent } from 'react'
 import { useState } from 'react'
@@ -8,7 +8,19 @@ import { useState } from 'react'
 import { uploadImage } from '@/supabase/uploadImage'
 import { useRouter } from 'next/navigation'
 
-export default function Imagens() {
+type ImagesProps = {
+  dir: string
+  title: string
+  description: string
+  replaceTo?: string
+}
+
+export default function Imagens({
+  dir,
+  title,
+  description,
+  replaceTo,
+}: ImagesProps) {
   const router = useRouter()
   const [file, setFile] = useState<any | null>()
 
@@ -18,10 +30,16 @@ export default function Imagens() {
     if (file) {
       const fileType = file.name.slice(file.name.indexOf('.'), file.length)
 
-      const response = await uploadImage({ file, fileType })
+      const response = await uploadImage({
+        file,
+        dir,
+        fileType,
+      })
+
+      if (typeof response === 'string') alert(response)
 
       if (response) {
-        router.replace('/imagens')
+        router.replace(replaceTo ? replaceTo : '/imagens')
         router.refresh()
       }
     }
@@ -30,11 +48,10 @@ export default function Imagens() {
   return (
     <StyledBox extraClass="overflow-x-hidden">
       <h1 className="text-white text-5xl w-full text-center font-bold mb-8 max-sm:text-3xl">
-        Imagens
+        {title}
       </h1>
       <h1 className="text-white text-2xl w-full text-center max-sm:text-xl">
-        Abaixo é possível lançar fotos sobre as contribuições que a Casa da Mãe
-        tem feito.
+        {description}
       </h1>
       <form
         className="w-full flex justify-center items-center my-5"

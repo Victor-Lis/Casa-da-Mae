@@ -6,34 +6,14 @@ import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Slides from './components/Slides'
 
-import { supabase } from '@/supabase/index'
+import { getImages } from '@/supabase/getImages'
 
 export default function Imagens() {
   const [imagesURLs, setImagesURLs] = useState<ImageType[]>([])
-  async function getImages() {
-    const URLs: ImageType[] = []
-    const { data: imagesFromBucket } = await supabase.storage
-      .from('contribuicoes')
-      .list()
-
-    imagesFromBucket?.map(async image => {
-      const url = await supabase.storage
-        .from('contribuicoes')
-        .getPublicUrl(image.name)
-
-      if (url.data)
-        URLs.push({
-          id: image.name,
-          url: url.data.publicUrl,
-        })
-    })
-
-    return URLs
-  }
 
   useEffect(() => {
     async function handleGetImages() {
-      const URLs = await getImages()
+      const URLs = await getImages({ dir: 'contribuicoes' })
       setImagesURLs(URLs)
     }
 

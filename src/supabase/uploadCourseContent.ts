@@ -8,12 +8,22 @@ type UploadImageProps = {
   file: any
   dir: string
   fileType: string
+
+  titulo: string
+  descricao: string
+
+  curso: string
 }
 
-export async function uploadImage({
+export async function uploadCourseContent({
   file,
   dir,
   fileType,
+
+  curso,
+
+  titulo,
+  descricao,
 }: UploadImageProps): Promise<boolean | null> {
   const id = generateRandomId()
 
@@ -24,5 +34,14 @@ export async function uploadImage({
       upsert: false,
     })
 
-  return !!data
+  const { data: url } = await supabase.storage
+    .from('arquivos')
+    .getPublicUrl(`${dir}/${id}${fileType}`)
+
+  const { data: insertData, error: insertError } = await supabase
+    .from('conteudos')
+    .insert([{ link: url.publicUrl, titulo, descricao, curso }])
+    .select()
+
+  return !!insertData
 }

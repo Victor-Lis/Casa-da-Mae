@@ -8,7 +8,7 @@ export default function ButtonDelete({ id }: { id: string }) {
   const router = useRouter()
 
   async function handleDeleteImage() {
-    const data = await deleteImage({ fileName: id })
+    const data = await deleteImage({ fileName: id, dir: 'contribuicoes' })
     if (data) {
       router.replace('/arearestrita')
     }

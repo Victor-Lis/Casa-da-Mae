@@ -1,16 +1,20 @@
-"use client";
+'use client'
 
-import type { RegisterOptions, UseFormRegister } from "react-hook-form";
+import type { RegisterOptions, UseFormRegister } from 'react-hook-form'
 
 interface InputProps {
-  type: string;
-  placeholder?: string;
-  name: string;
-  register: UseFormRegister<any>;
-  error?: string;
-  rules?: RegisterOptions;
+  type: string
+  placeholder?: string
+  name: string
+  register: UseFormRegister<any>
+  error?: string
+  rules?: RegisterOptions
 
-  options?: { label: string; value: string }[];
+  title?: string
+
+  options?: { label: string; value: string }[]
+
+  className?: string
 }
 
 export function Input({
@@ -21,13 +25,15 @@ export function Input({
   rules,
   error,
   options,
+  title,
+  className,
 }: InputProps) {
   return (
     <>
       <h1 className="mr-auto text-xl text-blue-500 font-bold mt-5">
-        {name?.toUpperCase()}
+        {title ? title : name?.toUpperCase()}
       </h1>
-      {type === "radio" ? (
+      {type === 'radio' ? (
         <>
           <div className="flex flex-col space-y-2">
             {options?.map((option, index) => (
@@ -49,7 +55,11 @@ export function Input({
       ) : (
         <>
           <input
-            className="w-full border-2 rounded-md h-11 px-2 bg-zinc-300"
+            className={
+              className
+                ? className
+                : 'w-full border-2 rounded-md h-11 px-2 bg-zinc-300'
+            }
             placeholder={placeholder}
             type={type}
             {...register(name, rules)}
@@ -59,5 +69,5 @@ export function Input({
       )}
       {error && <p className="text-red-500 my-1">{error}</p>}
     </>
-  );
+  )
 }
