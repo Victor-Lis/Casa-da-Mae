@@ -18,6 +18,7 @@ export default async function Curso({ params }: { params: CursoProps }) {
   const user = session?.user as UserType
 
   if (!curso) redirect('/cursos')
+  if (!user) redirect('/arearestrita')
 
   function formatCourse({ curso }: { curso: string }) {
     const formattedCurso = curso.replaceAll('-', ' ')
@@ -37,14 +38,14 @@ export default async function Curso({ params }: { params: CursoProps }) {
   const formattedCurso = formatCourse({ curso })
   const hasCourse = await hasThisCourse({
     curso: formattedCurso,
-    email: user.email,
+    email: user?.email,
   })
 
   if (!user?.admin && !hasCourse) redirect('/cursos')
 
   return (
     <main className="bg-tertiary py-6 flex flex-col items-center justify-center">
-      <AllUsers />
+      <AllUsers curso={formattedCurso} />
       {user?.admin && <AdminUsers curso={formattedCurso} />}
     </main>
   )

@@ -4,24 +4,24 @@ import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from '@/components/input'
-// import { insertStudentInProject } from "@/connetions/supabase/insertStudentInProject";
+
 import { redirect, useRouter } from 'next/navigation'
 import { insertCourseInscription } from '@/supabase/insertCourseInscription'
 import { uploadCourseContent } from '@/supabase/uploadCourseContent'
 import { uploadImage } from '@/supabase/uploadImage'
+import { uploadVideoLink } from '@/supabase/uploadVideoLink'
 
 const schema = z.object({
   titulo: z.string().min(3),
   descricao: z.string().min(10),
+  link: z.string().min(10),
 })
 
 type FormData = z.infer<typeof schema>
 
-export default function SubmitForm({ curso }: { curso: string }) {
+export default function VideoForm({ curso }: { curso: string }) {
   const [loading, setLoading] = useState<boolean>(false)
   const router = useRouter()
-
-  const [file, setFile] = useState<any | null>()
 
   const {
     register,
@@ -42,34 +42,30 @@ export default function SubmitForm({ curso }: { curso: string }) {
     return error
   }
 
+  function getVideoId(link: string): string {
+    if (link.includes('watch')) {
+      return link.slice(link.lastIndexOf('=') + 1, link.length)
+    }
+    return link.slice(link.lastIndexOf('/') + 1, link.length)
+  }
+
   async function handleFormSubmit(data: FormData) {
     if (!loading) {
-      if (!file) return
       setLoading(true)
+      const videoId = getVideoId(data.link)
 
-      const fileType = file.name.slice(file.name.indexOf('.'), file.length)
-
-      if (fileType === '.mp4') {
-        alert(
-          'Não é possível adicionar vídeos aqui, adicione no outro formulário'
-        )
-        setLoading(false)
-        return
-      }
-
-      const response = await uploadCourseContent({
+      const response = await uploadVideoLink({
         curso,
         descricao: data.descricao as string,
-        dir: 'cursos',
-        file,
-        fileType,
         titulo: data.titulo as string,
+        link: `https://www.youtube.com/embed/${videoId}` as string,
       })
 
       if (response) {
         router.replace('/cursos')
         router.refresh()
       }
+
       setLoading(false)
     }
   }
@@ -80,7 +76,7 @@ export default function SubmitForm({ curso }: { curso: string }) {
       onSubmit={handleSubmit(handleFormSubmit)}
     >
       <h1 className="text-blue-700 text-3xl m-auto uppercase font-bold">
-        Adicionar conteúdo
+        Adicionar Vídeo
       </h1>
       <Input
         type="text"
@@ -98,15 +94,13 @@ export default function SubmitForm({ curso }: { curso: string }) {
         register={register}
         error={translateError(errors.descricao?.message)}
       />
-      <input
-        type="file"
-        title="Arquivo"
-        name="arquivo"
-        placeholder="Selecione o arquivo"
-        className="mt-8 w-full border-2 pr-2 rounded-md bg-zinc-300 text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-tertiary file:text-white hover:file:opacity-85 hover:file:duration-150 hover:file:cursor-pointer"
-        onChange={e => {
-          setFile(e.target.files?.length ? e.target?.files[0] : '')
-        }}
+      <Input
+        type="text"
+        title="Link do Youtube"
+        name="link"
+        placeholder="Preencha com o link do vídeo no Youtube"
+        register={register}
+        error={translateError(errors.link?.message)}
       />
       <button
         type="submit"
