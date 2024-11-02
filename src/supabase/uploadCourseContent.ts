@@ -25,7 +25,7 @@ export async function uploadCourseContent({
   titulo,
   descricao,
 }: UploadImageProps): Promise<boolean | null> {
-  const id = generateRandomId()
+  const id = generateRandomId().slice(0, 8)
 
   const { data, error } = await supabase.storage
     .from('arquivos')
@@ -40,7 +40,17 @@ export async function uploadCourseContent({
 
   const { data: insertData, error: insertError } = await supabase
     .from('conteudos')
-    .insert([{ link: url.publicUrl, titulo, descricao, curso }])
+    .insert([
+      {
+        id,
+        link: url.publicUrl,
+        titulo,
+        descricao,
+        curso,
+        tipo_de_midia: fileType.includes('pdf') ? 'pdf' : 'imagem',
+        tipo: fileType,
+      },
+    ])
     .select()
 
   return !!insertData

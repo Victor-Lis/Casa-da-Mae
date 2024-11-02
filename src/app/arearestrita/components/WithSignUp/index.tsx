@@ -6,7 +6,7 @@ import { authOptions } from '@/lib/auth'
 import Profile from './Profile'
 
 import Inscriptions from './Admin/Inscriptions'
-import Imagens from '@/app/arearestrita/components/WithSignUp/Admin/Inscriptions/components/Imagens'
+import Imagens from '@/app/arearestrita/components/WithSignUp/Admin/Imagens'
 
 export default async function WithSignUp() {
   const session = await getServerSession(authOptions)

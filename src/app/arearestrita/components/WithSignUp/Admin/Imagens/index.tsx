@@ -1,6 +1,6 @@
 'use client'
 
-import StyledBox from '../../../../../StyledBox'
+import StyledBox from '../../../StyledBox'
 
 import type { FormEvent } from 'react'
 import { useState } from 'react'
@@ -22,25 +22,31 @@ export default function Imagens({
   replaceTo,
 }: ImagesProps) {
   const router = useRouter()
+
+  const [loading, setLoading] = useState<boolean>(false)
   const [file, setFile] = useState<any | null>()
 
   async function handleSubmitFile(e: FormEvent) {
     e.preventDefault()
 
     if (file) {
-      const fileType = file.name.slice(file.name.indexOf('.'), file.length)
+      if (!loading) {
+        setLoading(true)
+        const fileType = file.name.slice(file.name.indexOf('.'), file.length)
 
-      const response = await uploadImage({
-        file,
-        dir,
-        fileType,
-      })
+        const response = await uploadImage({
+          file,
+          dir,
+          fileType,
+        })
 
-      if (typeof response === 'string') alert(response)
+        if (typeof response === 'string') alert(response)
 
-      if (response) {
-        router.replace(replaceTo ? replaceTo : '/imagens')
-        router.refresh()
+        if (response) {
+          setLoading(false)
+          router.replace(replaceTo ? replaceTo : '/imagens')
+          router.refresh()
+        }
       }
     }
   }
@@ -73,13 +79,12 @@ export default function Imagens({
         />
         <button
           type="submit"
-          className="
-            py-2 px-4
-            rounded border-0
-            text-sm font-semibold
-            bg-blue-600 text-white
-            hover:opacity-85 hover:duration-150 hover:cursor-pointer
-          "
+          className={
+            !loading
+              ? 'py-2 px-4 rounded border-0 text-sm font-semibold bg-blue-600 text-white hover:opacity-85 hover:duration-150 hover:cursor-pointer'
+              : 'py-2 px-4 rounded border-0 text-sm font-semibold bg-gray-400 text-white cursor-not-allowed'
+          }
+          disabled={loading}
         >
           Enviar
         </button>
