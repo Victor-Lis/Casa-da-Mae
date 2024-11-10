@@ -44,7 +44,7 @@ export default async function Curso({ params }: { params: CursoProps }) {
   if (!user?.admin && !hasCourse) redirect('/cursos')
 
   return (
-    <main className="bg-tertiary py-6 flex flex-col items-center justify-center">
+    <main className="bg-tertiary py-6 flex flex-col items-center justify-center min-h-svh">
       <AllUsers curso={formattedCurso} />
       {user?.admin && <AdminUsers curso={formattedCurso} />}
     </main>
