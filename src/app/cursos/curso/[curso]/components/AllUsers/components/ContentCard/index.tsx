@@ -34,7 +34,7 @@ export default async function ContentCard({
           <p className="text-xl text-white font-bold">{content.descricao}</p>
         </aside>
       </div>
-      <DeleteButton content={content} />
+      {user.admin && <DeleteButton content={content} />}
     </>
   )
 }
