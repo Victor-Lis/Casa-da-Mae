@@ -18,4 +18,4 @@ Esse é um projeto resultado de um Freelance que realizei para um instituição 
 </div>
 
 ## Autores
-- [@Victor-Lis](https://www.linkedin.com/in/victor-lis-bronzo
+- [@Victor-Lis](https://www.linkedin.com/in/victor-lis-bronzo)
