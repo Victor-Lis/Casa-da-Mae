@@ -1,5 +1,3 @@
-Aqui está o README reformulado com maior espaçamento entre as seções e corrigida a estrutura de diretórios:
-
 # Casa da Mãe
 
 ## 💡 Sobre o Projeto
