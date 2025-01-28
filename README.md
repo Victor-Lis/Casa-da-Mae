@@ -1,36 +1,134 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Casa da Mãe
 
-## Getting Started
+## 💡 Sobre o Projeto
 
-First, run the development server:
+Casa da Mãe é um projeto social que visa ajudar famílias carentes através de acolhimento alimentar e educacional. O portal disponibiliza cursos gratuitos e gerencia doações para auxiliar famílias necessitadas.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+<br>
+
+## 🎨 Layout
+
+O projeto possui um design responsivo com tema personalizado usando:
+
+- Cores principais definidas em variáveis CSS
+- Fontes do Google (Inter, Pacifico, Ubuntu, Crimson Text)
+- Componentes reutilizáveis
+- Layout adaptativo para mobile
+
+<br>
+
+## 🚀 Tecnologias
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- [Next.js 14](https://nextjs.org/)
+- [React](https://reactjs.org)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [NextAuth.js](https://next-auth.js.org/)
+- [Supabase](https://supabase.com/)
+- [React Hook Form](https://react-hook-form.com/)
+- [Zod](https://zod.dev/)
+- [Swiper](https://swiperjs.com/)
+
+<br>
+
+## 🗂️ Estrutura de diretórios
+
+```
+src/
+├── app/                    # Rotas e páginas
+├── components/             # Componentes React reutilizáveis
+├── hooks/                  # Custom hooks
+├── lib/                    # Configurações e utilitários
+├── services/               # Serviços e APIs
+└── styles/                 # Arquivos de estilo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🔧 Configuração do Ambiente
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Pré-requisitos
+  - Node.js 18.x ou superior
+  - NPM 8.x ou superior
+  - Conta no Supabase
+  - Projeto configurado no Google Cloud para autenticação
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+## 💻 Funcionalidades
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Autenticação com Google
+- Área administrativa para gerenciar inscrições
+- Upload e gerenciamento de conteúdo dos cursos
+- Galeria de fotos das contribuições
+- Sistema de inscrição em cursos
+- Área restrita para alunos acessarem conteúdo
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<br>
 
-## Deploy on Vercel
+## 🌐 Scripts Disponíveis
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Desenvolvimento
+npm run dev         # Inicia servidor de desenvolvimento
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Produção
+npm run build       # Cria build otimizada
+npm run start       # Inicia servidor de produção
+```
+
+<br>
+
+## 🚀 Como executar?
+
+1. Clone o repositório
+   ```bash
+   git clone https://github.com/Victor-Lis/Casa-da-Mae/
+   ```
+
+2. Acesse a pasta do projeto
+   ```bash
+   cd casa-da-mae
+   ```
+
+3. Instale as dependências
+   ```bash
+   npm install
+   # ou
+   yarn install
+   ```
+
+4. Configure as variáveis ambiente
+   ```bash
+   casa-da-mae/.env
+   ```
+   ```bash
+   # NextAuth
+   SECRET=
+   NEXTAUTH_SECRET=
+   NEXT_AUTH_URL=
+   HOST_URL=
+   NEXT_AUTH_SECRET=
+
+   # Supabase
+   NEXT_PUBLIC_SUPABASE_URL=
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=
+
+   # Google
+   GOOGLE_CLIENT_ID=
+   GOOGLE_CLIENT_SECRET=
+   ```
+
+<br>
+
+## 👀 Veja você mesmo!
+
+[🌐 Deploy ao vivo](https://casa-da-mae.vercel.app/)
+
+<br>
+
+## 👥 Autores
+
+- [@Victor-Lis](https://www.linkedin.com/in/victor-lis-bronzo)
