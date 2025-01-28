@@ -1,4 +1,4 @@
-import type { UserType } from '@/@types/User'
+// import type { UserType } from '@/@types/User'
 import GoogleProvider from 'next-auth/providers/google'
 import { AuthOptions } from 'next-auth'
 import { SupabaseAdapter } from '@auth/supabase-adapter'
@@ -16,16 +16,11 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async session({ session, token, user }) {
-      const usuario = user as unknown as UserType
-      session.user = {
-        ...session.user,
-        id: user.id,
-        admin: usuario?.admin,
-      } as {
+      session.user = { ...session.user, id: user.id } as {
         id: string
         name: string
         email: string
-        admin: boolean
+        image: string
       }
       return session
     },

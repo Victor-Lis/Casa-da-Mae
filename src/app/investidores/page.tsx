@@ -41,7 +41,7 @@ export default function Investidores() {
     'Rubens Teixeira Machado  - CPF: 519.907.768-68',
     'Banco Itaú Unibanco - Agência 3809 Conta 04259-5',
     'PIX: 519.907.768-68',
-    'Et. Pedimos a gentileza de enviarem seu investimento entre os dias 01 - 10 de cada mês, pelo fato de entregarmos as cestas básicas no dia  20 de cada mês.',
+    'Et. Pedimos a gentileza de enviarem seu investimento entre os dias 01 - 10 de cada mês, pelo fato de entregarmos as cestas básicas no dia 20 de cada mês.',
   ]
 
   const agradecimentosText = [

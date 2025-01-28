@@ -2,6 +2,7 @@ import Email from '@/assets/email.png'
 import Mapa from '@/assets/mapa.png'
 import Telefone from '@/assets/telefone.png'
 import WhatsApp from '@/assets/whatsapp2.png'
+import Pix from '@/assets/pix.png'
 
 import Divisoria from '@/assets/divisoria.png'
 
@@ -18,7 +19,7 @@ export default function Footer() {
     <footer className="flex justify-around items-center bg-primary py-3 max-sm:flex-wrap max-sm:flex-col">
       <main className="flex-1 flex flex-wrap justify-between max-sm:px-2 px-10 gap-x-10 gap-y-5 text-white">
         <a
-          className="flex justify-center items-center"
+          className="flex justify-center items-center flex-2"
           href="mailto:casadamae.projeto@gmail.com"
           target="_blank"
           rel="noreferrer"
@@ -43,6 +44,16 @@ export default function Footer() {
           <Image src={WhatsApp} alt="WhatsApp" className="max-sm:w-6 w-10" />
           <h1 className="max-sm:text-base text-2xl ml-2">11 99614-3450</h1>
         </a>
+        <div className="flex justify-center items-center">
+          <Image
+            src={Pix}
+            alt="Pix"
+            className="max-sm:w-6 w-10 p-[2px] bg-gray-100/90 rounded-full"
+          />
+          <h1 className="max-sm:text-base text-2xl ml-2">
+            PIX: 519.907.768-68
+          </h1>
+        </div>
       </main>
       <Image src={Divisoria} alt="Divisoria" className="h-full max-sm:hidden" />
       <h1
