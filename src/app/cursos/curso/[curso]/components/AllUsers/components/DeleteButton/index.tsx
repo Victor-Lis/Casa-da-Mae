@@ -17,7 +17,7 @@ export default function DeleteButton({ content }: { content: ContentType }) {
         fileType: content.tipo,
       })
 
-      console.log(response)
+      //console.log(response)
 
       if (response) {
         router.replace('/cursos')

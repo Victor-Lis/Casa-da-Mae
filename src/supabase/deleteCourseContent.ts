@@ -13,7 +13,7 @@ export async function deleteCourseContent({
   }
 
   const { data, error } = await supabase.from('conteudos').delete().eq('id', id)
-  console.log(error)
+  //console.log(error)
   if (error) return false
 
   return true

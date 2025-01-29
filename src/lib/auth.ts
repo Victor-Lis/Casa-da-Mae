@@ -2,6 +2,7 @@
 import GoogleProvider from 'next-auth/providers/google'
 import { AuthOptions } from 'next-auth'
 import { SupabaseAdapter } from '@auth/supabase-adapter'
+import type { UserType } from '@/@types/User'
 
 export const authOptions: AuthOptions = {
   adapter: SupabaseAdapter({
@@ -16,12 +17,8 @@ export const authOptions: AuthOptions = {
   ],
   callbacks: {
     async session({ session, token, user }) {
-      session.user = { ...session.user, id: user.id } as {
-        id: string
-        name: string
-        email: string
-        image: string
-      }
+      const typedUser = user as unknown as UserType
+      session.user = typedUser
       return session
     },
   },
