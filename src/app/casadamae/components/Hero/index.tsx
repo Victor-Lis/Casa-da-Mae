@@ -21,7 +21,7 @@ export default function Hero() {
           <Image
             src={Alimentos}
             alt="Alimentos"
-            className="min-w-20 max-sm:min-w-12"
+            className="w-20 max-sm:min-w-12"
           />
           <h2 className="text-3xl max-sm:text-xl mt-1">
             Acolhimento
@@ -30,11 +30,7 @@ export default function Hero() {
           </h2>
         </div>
         <div className="flex justify-center items-center gap-x-4 bg-primary p-4 max-sm:p-1 rounded ml-auto">
-          <Image
-            src={Familia}
-            alt="Familia"
-            className="min-w-20 max-sm:min-w-12"
-          />
+          <Image src={Familia} alt="Familia" className="w-20 max-sm:min-w-12" />
           <h2 className="text-3xl max-sm:text-xl mt-1">
             Acolhimento <br />
             Familiar
