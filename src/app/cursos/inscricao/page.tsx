@@ -12,7 +12,7 @@ export type AlunoType = {
   // nome: string
   gmail: string
   curso:
-    | 'Contabilidade para Leigos'
+    | 'Contabilidade para Iniciantes'
     | 'Fluxo de Caixa'
     | 'Controle de Contas a Receber'
     | 'Controle de Contas a Pagar'
@@ -23,7 +23,7 @@ const schema = z.object({
   // nome: z.string().min(3),
   gmail: z.string().email(),
   curso: z.enum([
-    'Contabilidade para Leigos',
+    'Contabilidade para Iniciantes',
     'Fluxo de Caixa',
     'Controle de Contas a Receber',
     'Controle de Contas a Pagar',
@@ -101,8 +101,8 @@ export default function Inscricao() {
           error={translateError(errors.curso?.message)}
           options={[
             {
-              label: 'Contabilidade para Leigos',
-              value: 'Contabilidade para Leigos',
+              label: 'Contabilidade para Iniciantes',
+              value: 'Contabilidade para Iniciantes',
             },
             { label: 'Fluxo de Caixa', value: 'Fluxo de Caixa' },
             {
