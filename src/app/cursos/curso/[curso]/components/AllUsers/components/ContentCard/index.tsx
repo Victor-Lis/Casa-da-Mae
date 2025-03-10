@@ -3,6 +3,7 @@ import type { ContentType } from '@/@types/ContentType'
 import DeleteButton from '../DeleteButton'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
+import SwitchButton from '../SwitchButton'
 
 export default async function ContentCard({
   content,
@@ -34,7 +35,14 @@ export default async function ContentCard({
           <p className="text-xl text-white font-bold">{content.descricao}</p>
         </aside>
       </div>
-      {user.admin &&  <DeleteButton content={content} />}
+      {user.admin && (
+        <section className="w-9/12 min-w-72 flex justify-between items-center mt-2">
+          <aside className="flex gap-2 mr-auto">
+            <SwitchButton content={content} />
+          </aside>
+          <DeleteButton content={content} />
+        </section>
+      )}
     </>
   )
 }

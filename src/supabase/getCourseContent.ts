@@ -8,6 +8,7 @@ export async function getCourseContent({
     .from('conteudos')
     .select()
     .eq('curso', curso)
+    .order('edited_at', { ascending: false })
 
   return conteudo as ContentType[] | null
 }
