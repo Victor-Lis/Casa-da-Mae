@@ -14,7 +14,6 @@ type SessionType = {
 
 export default async function WithSignUp() {
   const session: SessionType | null = await getServerSession(authOptions)
-  //console.log(session)
   return (
     <div className="w-full flex flex-col justify-center items-center flex-wrap py-10 gap-y-10">
       <Profile />

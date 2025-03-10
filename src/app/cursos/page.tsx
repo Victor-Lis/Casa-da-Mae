@@ -26,17 +26,23 @@ export default async function Cursos() {
   const cursos = await getInscriptions()
 
   return (
-    <main className="bg-tertiary pb-6 flex flex-col items-center justify-center">
+    <main className="bg-tertiary pb-12 flex flex-col items-center justify-center">
       <Hero />
+      <Link
+        href={'/cursos/inscricao'}
+        className="bg-secondary text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded hover:opacity-85 hover:scale-105 hover:duration-150"
+      >
+        Inscreva-se
+      </Link>
       <CourseCard
         image={ContabilidadeImage}
-        title="Contabilidade para Leigos:"
+        title="Contabilidade para Iniciantes:"
         text="Entenda os princípios básicos da contabilidade de uma maneira clara, direta e simples."
-        link={'cursos/curso/contabilidade-para-leigos'}
+        link={'cursos/curso/contabilidade-para-iniciantes'}
       />
       {cursos?.find(
         curso =>
-          curso.nome_do_curso === 'Contabilidade para Leigos' &&
+          curso.nome_do_curso === 'Contabilidade para Iniciantes' &&
           curso.status_aprovacao
       ) && (
         <h2 className="mt-1 text-lg bg-green-500 text-white px-3 py-1 text-center">
@@ -102,12 +108,6 @@ export default async function Cursos() {
           Você tem acesso ao curso acima!
         </h2>
       )}
-      <Link
-        href={'/cursos/inscricao'}
-        className="bg-secondary text-2xl mt-12 px-4 py-2 mx-auto font-extrabold uppercase text-white rounded hover:opacity-85 hover:scale-105 hover:duration-150"
-      >
-        Inscreva-se
-      </Link>
     </main>
   )
 }
