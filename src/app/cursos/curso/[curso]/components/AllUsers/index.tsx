@@ -3,7 +3,6 @@ import ContentCard from './components/ContentCard'
 
 export default async function AllUsers({ curso }: { curso: string }) {
   const conteudos = await getCourseContent({ curso })
-  console.log(conteudos)
 
   return (
     <div className="w-full flex flex-col justify-center items-center">

@@ -1,12 +1,16 @@
 'use client'
 import type { ContentType } from '@/@types/ContentType'
+import type { DirectionType } from '@/@types/DirectionType'
 import { moveContentPositionById } from '@/supabase/moveCourseContentPosition'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import { FaArrowUpLong, FaArrowDownLong } from 'react-icons/fa6'
 
-export default function SwitchButton({ content }: { content: ContentType }) {
+export default function SwitchButton({
+  content,
+  direction,
+}: { content: ContentType; direction: DirectionType }) {
   const [loading, setLoading] = useState<boolean>(false)
   const router = useRouter()
 
@@ -17,6 +21,7 @@ export default function SwitchButton({ content }: { content: ContentType }) {
       const props = {
         id: content.id,
         curso: content.curso,
+        direction,
       }
       const response = await moveContentPositionById(props)
 
@@ -38,7 +43,11 @@ export default function SwitchButton({ content }: { content: ContentType }) {
       onClick={handleSwitch}
       disabled={loading}
     >
-      <FaArrowUpLong className="text-2xl" color="#fff" size={20} />
+      {direction === 'next' ? (
+        <FaArrowUpLong className="text-2xl" color="#fff" size={20} />
+      ) : (
+        <FaArrowDownLong className="text-2xl" color="#fff" size={20} />
+      )}
     </button>
   )
 }
