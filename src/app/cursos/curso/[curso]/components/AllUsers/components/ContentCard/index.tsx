@@ -38,7 +38,8 @@ export default async function ContentCard({
       {user.admin && (
         <section className="w-9/12 min-w-72 flex justify-between items-center mt-2">
           <aside className="flex gap-2 mr-auto">
-            <SwitchButton content={content} />
+            <SwitchButton direction='next' content={content} />
+            <SwitchButton direction='previus' content={content} />
           </aside>
           <DeleteButton content={content} />
         </section>

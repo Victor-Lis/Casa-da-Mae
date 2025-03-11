@@ -3,12 +3,12 @@ import { supabase } from './index'
 
 export async function getCourseContent({
   curso,
-}: { curso: string }): Promise<ContentType[] | null> {
+}: { curso: string }): Promise<ContentType[] | []> {
   const { data: conteudo, error } = await supabase
     .from('conteudos')
     .select()
     .eq('curso', curso)
     .order('edited_at', { ascending: false })
 
-  return conteudo as ContentType[] | null
+  return conteudo as ContentType[] | []
 }
