@@ -24,7 +24,7 @@ export default async function Cursos() {
   }
 
   const cursos = await getInscriptions()
-
+  
   return (
     <main className="bg-tertiary pb-12 flex flex-col items-center justify-center">
       <Hero />
