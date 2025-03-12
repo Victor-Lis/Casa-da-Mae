@@ -1,4 +1,4 @@
-import CourseCard from '@/components/CourseCard'
+import CourseCard from '@/app/arearestrita/components/WithSignUp/CourseCard'
 import Hero from './components/Hero'
 
 import { authOptions } from '@/lib/auth'
@@ -24,7 +24,7 @@ export default async function Cursos() {
   }
 
   const cursos = await getInscriptions()
-  
+
   return (
     <main className="bg-tertiary pb-12 flex flex-col items-center justify-center">
       <Hero />
