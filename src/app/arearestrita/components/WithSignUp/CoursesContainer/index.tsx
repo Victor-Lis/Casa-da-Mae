@@ -3,9 +3,9 @@ import FluxoImage from '@/assets/cursos/fluxo-de-caixa.png'
 import ControleImage from '@/assets/cursos/recebimento.png'
 import GastosImage from '@/assets/cursos/gastos.png'
 import EstoqueImage from '@/assets/cursos/qualidade.png'
+import CourseCard from '../CourseCard'
 
 import type { InscriptionType } from '@/@types/Inscription'
-import CourseCard from '@/components/CourseCard'
 
 export default function CoursesContainer({
   inscricoes,

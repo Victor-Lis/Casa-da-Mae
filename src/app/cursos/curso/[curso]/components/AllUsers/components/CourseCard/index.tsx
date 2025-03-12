@@ -40,7 +40,7 @@ export default async function CourseCard({
           <p className="text-xl">{text}</p>
         </div>
       </Link>
-      {favoriteContent && <PreviewCourse content={favoriteContent}/>}
+      {favoriteContent && <PreviewCourse content={favoriteContent} />}
     </>
   )
 }
