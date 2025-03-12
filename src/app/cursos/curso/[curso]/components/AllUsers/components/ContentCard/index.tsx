@@ -4,6 +4,7 @@ import DeleteButton from '../DeleteButton'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import SwitchButton from '../SwitchButton'
+import FavoriteButton from '../FavoriteButton'
 
 export default async function ContentCard({
   content,
@@ -38,8 +39,9 @@ export default async function ContentCard({
       {user.admin && (
         <section className="w-9/12 min-w-72 flex justify-between items-center mt-2">
           <aside className="flex gap-2 mr-auto">
-            <SwitchButton direction='next' content={content} />
-            <SwitchButton direction='previus' content={content} />
+            <FavoriteButton content={content} />
+            <SwitchButton direction="next" content={content} />
+            <SwitchButton direction="previus" content={content} />
           </aside>
           <DeleteButton content={content} />
         </section>

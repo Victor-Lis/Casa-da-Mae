@@ -10,4 +10,6 @@ export type ContentType = {
 
   titulo: string
   descricao: string
+
+  is_favorite: boolean
 }
