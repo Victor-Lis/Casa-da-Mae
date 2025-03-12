@@ -23,7 +23,7 @@ export async function moveContentPositionById({
         error: 'This is the first content',
       }
 
-    const nextDate = new Date(previusContent.edited_at)
+    const nextDate = new Date(nextContent.edited_at)
     nextDate.setSeconds(nextDate.getSeconds() + 1)
 
     const { data, error } = await supabase
