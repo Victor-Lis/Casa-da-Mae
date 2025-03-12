@@ -1,4 +1,4 @@
-import CourseCard from '@/app/arearestrita/components/WithSignUp/CourseCard'
+import CourseCard from '@/app/cursos/curso/[curso]/components/AllUsers/components/CourseCard'
 import Hero from './components/Hero'
 
 import { authOptions } from '@/lib/auth'
