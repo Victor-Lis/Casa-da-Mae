@@ -59,7 +59,7 @@ export default function Header() {
         </div>
       </main>
       <nav
-        className={`w-full bg-primary flex flex-wrap justify-between items-center px-6 min-h-12 sticky top-0 z-10 ${ubuntu.className} gap-x-32`}
+        className={`w-full bg-primary flex flex-wrap justify-between items-center gap-3 px-6 pb-3 min-h-12 sticky top-0 z-10 ${ubuntu.className} gap-x-32`}
       >
         <Link
           href={"/"}
@@ -108,6 +108,22 @@ export default function Header() {
           }`}
         >
           Investidores
+        </Link>
+        <Link
+          href={"/soprodefelicidade"}
+          className={`text-lg text-white my-2 ${
+            isLikeRoute("/soprodefelicidade") ? "font-bold underline" : ""
+          }`}
+        >
+          Sopro de Felicidade
+        </Link>
+        <Link
+          href={"/saberesemroda"}
+          className={`text-lg text-white my-2 ${
+            isLikeRoute("/saberesemroda") ? "font-bold underline" : ""
+          }`}
+        >
+          Saberes em Roda
         </Link>
         <Link
           href={"/imagens"}
