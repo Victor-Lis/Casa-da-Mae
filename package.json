@@ -2,19 +2,24 @@
   "name": "portal-de-projetos",
   "version": "0.1.0",
   "private": true,
+  "prisma": {
+    "schema": "prisma/schema.prisma"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "docker:up": "docker-compose up -d --build",
-    "generate": "prisma generate",
-    "migrate": "prisma migrate"
+  "prisma:format": "pnpx prisma format --schema=prisma",
+     "generate": "pnpx prisma generate --schema=prisma",
+     "migrate": "pnpx prisma migrate dev --schema=prisma"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.4.2",
     "@biomejs/biome": "^1.9.3",
     "@hookform/resolvers": "^3.9.0",
+    "@prisma/client": "6.17.1",
     "@supabase/supabase-js": "^2.45.2",
     "next": "14.2.6",
     "next-auth": "^4.24.7",
@@ -32,6 +37,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.6",
     "postcss": "^8",
+    "prisma": "6.17.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

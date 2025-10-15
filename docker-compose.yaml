@@ -16,6 +16,19 @@ services:
     networks:
       - local-network
 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    ports:
+      - "5050:80"
+    depends_on:
+      - casa-da-mae-postgres-db
+    networks:
+      - local-network
+
 volumes:
   db_volume:
 

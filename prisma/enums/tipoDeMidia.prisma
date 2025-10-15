@@ -1,0 +1,6 @@
+enum TipoDeMidia {
+  pdf
+  video
+  imagem
+  enum
+}

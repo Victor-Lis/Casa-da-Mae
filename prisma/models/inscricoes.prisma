@@ -1,0 +1,9 @@
+model Inscricao {
+  id             BigInt   @id @default(autoincrement())
+  createdAt      DateTime @map("created_at") @db.Timestamptz(6)
+  nomeDoCurso    String   @map("nome_do_curso")
+  statusAprovacao Boolean  @map("status_aprovacao")
+  aluno          String
+
+  @@map("inscricoes")
+}
