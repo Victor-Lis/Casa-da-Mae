@@ -1,0 +1,11 @@
+model Usuario {
+  id         Int      @id @default(autoincrement())
+  username   String   @unique
+  name       String
+  password   String
+  type       UserRole @default(USER)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@map("usuario")
+}

@@ -1,13 +1,15 @@
 model Conteudo {
-  id          BigInt   @id @default(autoincrement())
-  editedAt    DateTime @map("edited_at") @db.Timestamptz(6)
-  descricao   String   @db.Text
-  link        String   @db.Text
-  curso       String
+  id          BigInt      @id @default(autoincrement())
+  editedAt    DateTime    @map("edited_at") @db.Timestamptz(6)
+  descricao   String      @db.Text
+  link        String      @db.Text
   titulo      String
   tipo        String
-  isFavorite  Boolean  @map("is_favorite")
-  tipoDeMidia TipoDeMidia   @map("tipo_de_midia")
+  isFavorite  Boolean     @map("is_favorite")
+  tipoDeMidia TipoDeMidia @map("tipo_de_midia")
+
+  cursoId BigInt @map("curso_id")
+  curso   Curso  @relation(fields: [cursoId], references: [id], onDelete: Cascade)
 
   @@map("conteudos")
 }
