@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:up": "docker-compose up -d --build",
+    "generate": "prisma generate",
+    "migrate": "prisma migrate"
   },
   "dependencies": {
     "@auth/supabase-adapter": "^1.4.2",
